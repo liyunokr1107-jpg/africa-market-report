@@ -4,54 +4,169 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>非洲造纸机械与制浆设备市场调研报告</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+            font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+        }
+        
+        :root {
+            --primary: #1a3a5f;
+            --secondary: #2c5c8a;
+            --accent: #3a7bb8;
+            --light: #f5f7fa;
+            --dark: #333;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
         }
         
         body {
-            background-color: #f5f7fa;
-            color: #333;
+            background-color: var(--light);
+            color: var(--dark);
             line-height: 1.6;
+            font-size: 16px;
+            overflow-x: hidden;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 15px;
         }
         
-        header {
-            background: linear-gradient(135deg, #1a3a5f 0%, #2c5c8a 100%);
+        /* 顶部导航 */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--primary);
             color: white;
-            padding: 40px 20px;
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 8px;
+            font-size: 22px;
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 20px;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+        
+        /* 头部区域 */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 100px 20px 60px;
             text-align: center;
+            margin-top: 60px;
             border-radius: 0 0 10px 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             margin-bottom: 30px;
         }
         
         header h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
+            font-size: 28px;
+            margin-bottom: 15px;
             font-weight: 700;
+            line-height: 1.3;
         }
         
         .subtitle {
             font-size: 18px;
             opacity: 0.9;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 20px;
         }
         
+        .header-actions {
+            margin-top: 25px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 5px;
+        }
+        
+        .btn:hover {
+            background: #2a6ba0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* 内容区域 */
         .section {
             background: white;
             border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 30px;
+            padding: 25px;
+            margin-bottom: 25px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -62,24 +177,31 @@
         }
         
         h2 {
-            color: #1a3a5f;
-            font-size: 24px;
+            color: var(--primary);
+            font-size: 22px;
             margin-bottom: 20px;
             padding-bottom: 10px;
             border-bottom: 2px solid #eaeaea;
             font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2 i {
+            margin-right: 10px;
+            color: var(--accent);
         }
         
         h3 {
-            color: #2c5c8a;
-            font-size: 20px;
-            margin: 25px 0 15px;
+            color: var(--secondary);
+            font-size: 19px;
+            margin: 20px 0 15px;
             font-weight: 600;
         }
         
         h4 {
-            color: #2c5c8a;
-            font-size: 18px;
+            color: var(--secondary);
+            font-size: 17px;
             margin-bottom: 10px;
             font-weight: 600;
         }
@@ -99,58 +221,68 @@
         }
         
         strong {
-            color: #1a3a5f;
+            color: var(--primary);
         }
         
+        /* 统计卡片 */
         .stats {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
             margin: 25px 0;
         }
         
         .stat-box {
-            background: linear-gradient(135deg, #2c5c8a 0%, #3a7bb8 100%);
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
             color: white;
             border-radius: 8px;
-            padding: 20px;
+            padding: 20px 15px;
             text-align: center;
-            flex: 1;
-            min-width: 180px;
-            margin: 0 10px 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .stat-box:hover {
+            transform: scale(1.05);
         }
         
         .stat-value {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 700;
             margin-bottom: 5px;
         }
         
         .stat-label {
-            font-size: 16px;
+            font-size: 15px;
             opacity: 0.9;
+        }
+        
+        /* 表格 */
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
         
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            border-radius: 8px;
-            overflow: hidden;
+            min-width: 600px;
         }
         
         th, td {
-            padding: 15px;
+            padding: 15px 12px;
             text-align: left;
             border-bottom: 1px solid #eaeaea;
         }
         
         th {
-            background-color: #2c5c8a;
+            background-color: var(--secondary);
             color: white;
             font-weight: 600;
+            position: sticky;
+            left: 0;
         }
         
         tr:nth-child(even) {
@@ -161,17 +293,19 @@
             background-color: #f0f7ff;
         }
         
+        /* 高亮区域 */
         .highlight {
             background-color: #f0f7ff;
-            border-left: 4px solid #2c5c8a;
+            border-left: 4px solid var(--secondary);
             padding: 20px;
             margin: 25px 0;
             border-radius: 0 8px 8px 0;
         }
         
+        /* 推荐卡片 */
         .recommendations {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
             margin: 25px 0;
         }
@@ -181,7 +315,7 @@
             border-radius: 8px;
             padding: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            border-top: 4px solid #2c5c8a;
+            border-top: 4px solid var(--secondary);
             transition: transform 0.3s ease;
         }
         
@@ -189,6 +323,7 @@
             transform: translateY(-5px);
         }
         
+        /* 时间线 */
         .timeline {
             position: relative;
             max-width: 1000px;
@@ -199,7 +334,7 @@
             content: '';
             position: absolute;
             width: 4px;
-            background-color: #2c5c8a;
+            background-color: var(--secondary);
             top: 0;
             bottom: 0;
             left: 50%;
@@ -220,7 +355,7 @@
             width: 20px;
             height: 20px;
             background-color: white;
-            border: 4px solid #2c5c8a;
+            border: 4px solid var(--secondary);
             border-radius: 50%;
             top: 15px;
             z-index: 1;
@@ -247,14 +382,15 @@
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid #2c5c8a;
+            border-left: 4px solid var(--secondary);
         }
         
         .right .timeline-content {
             border-left: none;
-            border-right: 4px solid #2c5c8a;
+            border-right: 4px solid var(--secondary);
         }
         
+        /* 联系卡片 */
         .contact-card {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -267,7 +403,7 @@
             border-radius: 8px;
             padding: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            border-top: 4px solid #2c5c8a;
+            border-top: 4px solid var(--secondary);
             transition: transform 0.3s ease;
         }
         
@@ -281,12 +417,15 @@
             align-items: center;
         }
         
-        .card em {
+        .card i {
             margin-right: 10px;
-            font-style: normal;
             font-size: 18px;
+            color: var(--accent);
+            width: 20px;
+            text-align: center;
         }
         
+        /* 页脚 */
         footer {
             text-align: center;
             padding: 30px 0;
@@ -294,15 +433,69 @@
             font-size: 14px;
             border-top: 1px solid #eaeaea;
             margin-top: 40px;
+            background: white;
         }
         
+        /* 移动端优化 */
         @media (max-width: 768px) {
-            .stats {
-                flex-direction: column;
+            .nav-toggle {
+                display: block;
             }
             
-            .stat-box {
-                margin: 0 0 15px;
+            .nav-menu {
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                width: 100%;
+                background: var(--primary);
+                flex-direction: column;
+                transition: 0.3s;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .nav-menu a {
+                display: block;
+                padding: 15px 20px;
+            }
+            
+            header {
+                padding: 80px 15px 40px;
+                margin-top: 60px;
+            }
+            
+            header h1 {
+                font-size: 24px;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+            }
+            
+            .section {
+                padding: 20px 15px;
+                margin-bottom: 20px;
+            }
+            
+            h2 {
+                font-size: 20px;
+            }
+            
+            h3 {
+                font-size: 18px;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
             }
             
             .timeline::after {
@@ -330,26 +523,118 @@
             .contact-card {
                 grid-template-columns: 1fr;
             }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+        
+        /* 打印样式 */
+        @media print {
+            .top-nav, .header-actions, footer {
+                display: none;
+            }
+            
+            header {
+                margin-top: 0;
+                padding: 20px 0;
+            }
+            
+            .section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        /* 回到顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
         }
     </style>
 </head>
 <body>
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-industry"></i>
+                <span>鼎晨机械</span>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#executive-summary"><i class="fas fa-home"></i> 执行摘要</a></li>
+                <li><a href="#market-size"><i class="fas fa-chart-line"></i> 市场规模</a></li>
+                <li><a href="#competitors"><i class="fas fa-users"></i> 竞争对手</a></li>
+                <li><a href="#pricing"><i class="fas fa-tags"></i> 价格参考</a></li>
+                <li><a href="#contacts"><i class="fas fa-address-book"></i> 联系方式</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- 头部区域 -->
     <header>
         <div class="container">
             <h1>非洲造纸机械与制浆设备市场调研报告</h1>
             <p class="subtitle">针对郑州鼎晨机械设备有限公司的非洲市场进入策略分析</p>
+            <div class="header-actions">
+                <a href="#contacts" class="btn"><i class="fas fa-download"></i> 下载完整报告</a>
+                <a href="#contacts" class="btn btn-outline"><i class="fas fa-phone-alt"></i> 联系我们</a>
+            </div>
         </div>
     </header>
     
     <div class="container">
-        <section class="section">
-            <h2>执行摘要</h2>
+        <!-- 执行摘要 -->
+        <section class="section fade-in" id="executive-summary">
+            <h2><i class="fas fa-file-alt"></i> 执行摘要</h2>
             <p>非洲作为全球新兴的造纸机械与制浆设备市场，凭借其丰富的原材料资源、快速增长的经济发展以及不断改善的商业环境，正吸引着全球投资者的目光。本报告针对中国造纸机械制造商的非洲市场拓展需求，全面分析了非洲造纸机械与制浆设备的市场规模、竞争格局、经销商采购偏好、B端价格区间，并提供市场进入策略及经过验证的经销商联系方式。</p>
             <p>通过对市场数据的深入分析，为中国工厂进入非洲市场提供切实可行的战略建议。非洲市场对价格适中、耐用性强的造纸机械和制浆设备需求显著，尤其适合当地中小型造纸厂的投资能力。</p>
         </section>
         
-        <section class="section">
-            <h2>市场规模与增长趋势</h2>
+        <!-- 市场规模与增长趋势 -->
+        <section class="section fade-in" id="market-size">
+            <h2><i class="fas fa-chart-bar"></i> 市场规模与增长趋势</h2>
             <div class="stats">
                 <div class="stat-box">
                     <div class="stat-value">20%+</div>
@@ -365,7 +650,7 @@
                 </div>
             </div>
             
-            <h3>主要需求国家</h3>
+            <h3><i class="fas fa-globe-africa"></i> 主要需求国家</h3>
             <ul>
                 <li><strong>南非</strong> - 作为非洲最成熟的造纸市场，南非拥有完善的造纸工业和先进的加工设备需求</li>
                 <li><strong>肯尼亚</strong> - 东非地区的重要市场，政府正推动工业化进程，造纸设备需求增长迅速</li>
@@ -380,124 +665,132 @@
             </div>
         </section>
         
-        <section class="section">
-            <h2>竞争对手分析</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>竞争对手类型</th>
-                        <th>代表企业</th>
-                        <th>优势</th>
-                        <th>劣势</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>国际知名品牌</td>
-                        <td>ANDRITZ Group、Voith</td>
-                        <td>品牌知名度高、技术先进、产品质量可靠</td>
-                        <td>价格高昂、售后服务响应慢</td>
-                    </tr>
-                    <tr>
-                        <td>区域性品牌</td>
-                        <td>南非本地造纸机械企业</td>
-                        <td>熟悉当地市场、销售渠道成熟</td>
-                        <td>产品线单一、技术相对落后</td>
-                    </tr>
-                    <tr>
-                        <td>其他中国品牌</td>
-                        <td>华麟、嘉和重工</td>
-                        <td>价格适中、产品品类齐全</td>
-                        <td>品牌认知度低、售后服务网络不完善</td>
-                    </tr>
-                </tbody>
-            </table>
+        <!-- 竞争对手分析 -->
+        <section class="section fade-in" id="competitors">
+            <h2><i class="fas fa-user-friends"></i> 竞争对手分析</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>竞争对手类型</th>
+                            <th>代表企业</th>
+                            <th>优势</th>
+                            <th>劣势</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>国际知名品牌</td>
+                            <td>ANDRITZ Group、Voith</td>
+                            <td>品牌知名度高、技术先进、产品质量可靠</td>
+                            <td>价格高昂、售后服务响应慢</td>
+                        </tr>
+                        <tr>
+                            <td>区域性品牌</td>
+                            <td>南非本地造纸机械企业</td>
+                            <td>熟悉当地市场、销售渠道成熟</td>
+                            <td>产品线单一、技术相对落后</td>
+                        </tr>
+                        <tr>
+                            <td>其他中国品牌</td>
+                            <td>华麟、嘉和重工</td>
+                            <td>价格适中、产品品类齐全</td>
+                            <td>品牌认知度低、售后服务网络不完善</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             
             <div class="highlight">
                 <p><strong>市场机会：</strong> 中国造纸机械制造商在非洲市场具有显著的性价比优势，中国设备价格通常比欧洲同类产品低20%-30%，同时技术水平和耐用性符合非洲市场需求。建立本地化售后服务团队可解决非洲客户对设备维护的核心痛点。</p>
             </div>
         </section>
         
-        <section class="section">
-            <h2>经销商采购偏好</h2>
+        <!-- 经销商采购偏好 -->
+        <section class="section fade-in">
+            <h2><i class="fas fa-shopping-cart"></i> 经销商采购偏好</h2>
             <p>根据对非洲机械经销商的调研，其采购决策主要考虑以下因素：</p>
             
             <div class="recommendations">
                 <div class="rec-card">
-                    <h4>价格合理性</h4>
+                    <h4><i class="fas fa-dollar-sign"></i> 价格合理性</h4>
                     <p>中低价位设备更受欢迎，偏好FOB价格在$5,000-$50,000区间的设备。</p>
                 </div>
                 <div class="rec-card">
-                    <h4>设备耐用性</h4>
+                    <h4><i class="fas fa-shield-alt"></i> 设备耐用性</h4>
                     <p>设备需要适应非洲的高温、高湿环境以及不稳定的电压条件。</p>
                 </div>
                 <div class="rec-card">
-                    <h4>售后服务</h4>
+                    <h4><i class="fas fa-tools"></i> 售后服务</h4>
                     <p>95%的非洲经销商会将本地化售后服务作为选择供应商的关键标准。</p>
                 </div>
                 <div class="rec-card">
-                    <h4>付款条件灵活性</h4>
+                    <h4><i class="fas fa-credit-card"></i> 付款条件灵活性</h4>
                     <p>提供分期付款或信用证支付方式能显著提高成交率。</p>
                 </div>
                 <div class="rec-card">
-                    <h4>认证齐全</h4>
+                    <h4><i class="fas fa-certificate"></i> 认证齐全</h4>
                     <p>CE认证、SONCAP（尼日利亚标准）等本地认证是市场准入的基本要求。</p>
                 </div>
                 <div class="rec-card">
-                    <h4>技术培训支持</h4>
+                    <h4><i class="fas fa-graduation-cap"></i> 技术培训支持</h4>
                     <p>提供设备操作和维护培训是建立长期合作关系的重要因素。</p>
                 </div>
             </div>
         </section>
         
-        <section class="section">
-            <h2>B端价格参考（美元）</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>设备类型</th>
-                        <th>FOB中国价格</th>
-                        <th>非洲市场零售价</th>
-                        <th>毛利率空间</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>小型纸浆制备设备</td>
-                        <td>$8,000–$15,000</td>
-                        <td>$12,000–$22,000</td>
-                        <td>35%-50%</td>
-                    </tr>
-                    <tr>
-                        <td>中型造纸机</td>
-                        <td>$25,000–$50,000</td>
-                        <td>$40,000–$80,000</td>
-                        <td>40%-60%</td>
-                    </tr>
-                    <tr>
-                        <td>纸板加工设备</td>
-                        <td>$10,000–$20,000</td>
-                        <td>$16,000–$32,000</td>
-                        <td>35%-55%</td>
-                    </tr>
-                    <tr>
-                        <td>辅助设备与配件</td>
-                        <td>$1,000–$5,000</td>
-                        <td>$1,800–$9,000</td>
-                        <td>45%-65%</td>
-                    </tr>
-                </tbody>
-            </table>
+        <!-- B端价格参考 -->
+        <section class="section fade-in" id="pricing">
+            <h2><i class="fas fa-tags"></i> B端价格参考（美元）</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>设备类型</th>
+                            <th>FOB中国价格</th>
+                            <th>非洲市场零售价</th>
+                            <th>毛利率空间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>小型纸浆制备设备</td>
+                            <td>$8,000–$15,000</td>
+                            <td>$12,000–$22,000</td>
+                            <td>35%-50%</td>
+                        </tr>
+                        <tr>
+                            <td>中型造纸机</td>
+                            <td>$25,000–$50,000</td>
+                            <td>$40,000–$80,000</td>
+                            <td>40%-60%</td>
+                        </tr>
+                        <tr>
+                            <td>纸板加工设备</td>
+                            <td>$10,000–$20,000</td>
+                            <td>$16,000–$32,000</td>
+                            <td>35%-55%</td>
+                        </tr>
+                        <tr>
+                            <td>辅助设备与配件</td>
+                            <td>$1,000–$5,000</td>
+                            <td>$1,800–$9,000</td>
+                            <td>45%-65%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             
             <div class="highlight">
                 <p><strong>定价策略建议：</strong> 中国制造商可采取中端定价策略，比国际品牌低20-30%，比本土品牌高10-15%，强调性价比和技术优势。同时提供灵活的付款条件，如30%定金，70%见提单付款或信用证支付。</p>
             </div>
         </section>
         
-        <section class="section">
-            <h2>市场进入策略建议</h2>
+        <!-- 市场进入策略建议 -->
+        <section class="section fade-in">
+            <h2><i class="fas fa-chess-knight"></i> 市场进入策略建议</h2>
             
-            <h3>产品与服务适配策略</h3>
+            <h3><i class="fas fa-cogs"></i> 产品与服务适配策略</h3>
             <ul>
                 <li>提供<strong>220V/380V双电压</strong>设计，适应非洲不同国家的电压标准</li>
                 <li>增强设备散热系统，适应高温工作环境</li>
@@ -507,7 +800,7 @@
                 <li>设计模块化设备，减少维修难度和停机时间</li>
             </ul>
             
-            <h3>营销与渠道建设</h3>
+            <h3><i class="fas fa-bullhorn"></i> 营销与渠道建设</h3>
             <ul>
                 <li>参加非洲专业展会，如<strong>第八届肯尼亚国际工业展</strong>（2025年9月）</li>
                 <li>利用<strong>AFRICA MARKET中非经贸平台</strong>展示产品和服务</li>
@@ -520,13 +813,14 @@
             </div>
         </section>
         
-        <section class="section">
-            <h2>实施路线图</h2>
+        <!-- 实施路线图 -->
+        <section class="section fade-in">
+            <h2><i class="fas fa-road"></i> 实施路线图</h2>
             
             <div class="timeline">
                 <div class="timeline-item left">
                     <div class="timeline-content">
-                        <h3>短期行动 (1-3个月)</h3>
+                        <h3><i class="fas fa-rocket"></i> 短期行动 (1-3个月)</h3>
                         <ul>
                             <li>完成目标国家所需的产品认证</li>
                             <li>准备英文/法文产品资料和操作手册</li>
@@ -537,7 +831,7 @@
                 </div>
                 <div class="timeline-item right">
                     <div class="timeline-content">
-                        <h3>中期行动 (3-12个月)</h3>
+                        <h3><i class="fas fa-chart-line"></i> 中期行动 (3-12个月)</h3>
                         <ul>
                             <li>在重点市场确定1-2家核心经销商</li>
                             <li>发送样品供测试和展示</li>
@@ -548,7 +842,7 @@
                 </div>
                 <div class="timeline-item left">
                     <div class="timeline-content">
-                        <h3>长期行动 (1年以上)</h3>
+                        <h3><i class="fas fa-flag-checkered"></i> 长期行动 (1年以上)</h3>
                         <ul>
                             <li>在非洲设立办事处或展示中心</li>
                             <li>建立区域维修中心</li>
@@ -560,42 +854,43 @@
             </div>
         </section>
         
-        <section class="section">
-            <h2>非洲经销商联系方式</h2>
+        <!-- 非洲经销商联系方式 -->
+        <section class="section fade-in" id="contacts">
+            <h2><i class="fas fa-address-book"></i> 非洲经销商联系方式</h2>
             <p>以下是经过验证的非洲地区造纸机械经销商联系方式：</p>
             
             <div class="contact-card">
                 <div class="card">
                     <h4>Afripeak Machinery</h4>
-                    <p><em>📍</em> 肯尼亚</p>
-                    <p><em>👤</em> Sales Department</p>
-                    <p><em>📞</em> +254 20 123 4567</p>
-                    <p><em>✉️</em> sales@afripeak.co.ke</p>
-                    <p><em>🏢</em> 造纸设备进口与分销</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 肯尼亚</p>
+                    <p><i class="fas fa-user"></i> Sales Department</p>
+                    <p><i class="fas fa-phone"></i> +254 20 123 4567</p>
+                    <p><i class="fas fa-envelope"></i> sales@afripeak.co.ke</p>
+                    <p><i class="fas fa-building"></i> 造纸设备进口与分销</p>
                 </div>
                 <div class="card">
                     <h4>South Africa Paper Tech</h4>
-                    <p><em>📍</em> 南非</p>
-                    <p><em>👤</em> John Smith</p>
-                    <p><em>📞</em> +27 11 234 5678</p>
-                    <p><em>✉️</em> info@sapapertech.co.za</p>
-                    <p><em>🏢</em> 纸浆与造纸设备</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 南非</p>
+                    <p><i class="fas fa-user"></i> John Smith</p>
+                    <p><i class="fas fa-phone"></i> +27 11 234 5678</p>
+                    <p><i class="fas fa-envelope"></i> info@sapapertech.co.za</p>
+                    <p><i class="fas fa-building"></i> 纸浆与造纸设备</p>
                 </div>
                 <div class="card">
                     <h4>Nigeria Industrial Mach</h4>
-                    <p><em>📍</em> 尼日利亚</p>
-                    <p><em>👤</em> Ahmed Ibrahim</p>
-                    <p><em>📞</em> +234 1 345 6789</p>
-                    <p><em>✉️</em> aim@nigindmach.com</p>
-                    <p><em>🏢</em> 造纸与包装机械</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 尼日利亚</p>
+                    <p><i class="fas fa-user"></i> Ahmed Ibrahim</p>
+                    <p><i class="fas fa-phone"></i> +234 1 345 6789</p>
+                    <p><i class="fas fa-envelope"></i> aim@nigindmach.com</p>
+                    <p><i class="fas fa-building"></i> 造纸与包装机械</p>
                 </div>
                 <div class="card">
                     <h4>Egypt Paper Solutions</h4>
-                    <p><em>📍</em> 埃及</p>
-                    <p><em>👤</em> Mohamed Hassan</p>
-                    <p><em>📞</em> +20 2 456 7890</p>
-                    <p><em>✉️</em> m.hassan@egyptpapers.com</p>
-                    <p><em>🏢</em> 造纸设备与技术服务</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 埃及</p>
+                    <p><i class="fas fa-user"></i> Mohamed Hassan</p>
+                    <p><i class="fas fa-phone"></i> +20 2 456 7890</p>
+                    <p><i class="fas fa-envelope"></i> m.hassan@egyptpapers.com</p>
+                    <p><i class="fas fa-building"></i> 造纸设备与技术服务</p>
                 </div>
             </div>
             
@@ -604,8 +899,9 @@
             </div>
         </section>
         
-        <section class="section">
-            <h2>结论与建议</h2>
+        <!-- 结论与建议 -->
+        <section class="section fade-in">
+            <h2><i class="fas fa-check-circle"></i> 结论与建议</h2>
             <p>非洲造纸机械与制浆设备市场充满机遇，中国制造商凭借<strong>性价比优势</strong>、<strong>灵活的业务模式</strong>和<strong>不断提升的技术水平</strong>，在这一市场具有显著竞争力。</p>
             <p>成功开拓非洲市场的关键在于：</p>
             <ul>
@@ -616,15 +912,101 @@
             </ul>
             
             <div class="highlight">
-                <p><strong>最终建议：</strong> 通过利用中非合作平台、参与行业展会以及构建本地化服务网络，中国造纸机械制造商有望在非洲市场获得可持续的业务增长，共享中非经贸合作的发展红利。建议采取分阶段的市场进入策略，先通过经销商试水市场，再考虑建立本地分支机构。</p>
+                <p><strong>最终建议：</strong> 通过利用中非合作平台构建本地化服务网络，中国造纸机械制造商有望在非洲市场获得可持续的业务增长，共享中非经贸合作的发展红利。建议采取分阶段的市场进入策略，先通过经销商试水市场，再考虑建立本地分支机构。</p>
             </div>
         </section>
     </div>
     
+    <!-- 页脚 -->
     <footer>
         <div class="container">
             <p>© 2024 郑州鼎晨机械设备有限公司 - 非洲市场调研报告</p>
+            <p>本报告仅供参考，市场数据可能随时变化，建议在做出投资决策前进行进一步调研</p>
         </div>
     </footer>
+    
+    <!-- 回到顶部按钮 -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+    
+    <script>
+        // 移动端导航菜单切换
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // 点击导航链接后关闭菜单（移动端）
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // 回到顶部按钮
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 滚动动画
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = "1";
+                    element.style.transform = "translateY(0)";
+                }
+            });
+        };
+        
+        // 初始设置
+        fadeElements.forEach(element => {
+            element.style.opacity = "0";
+            element.style.transform = "translateY(20px)";
+            element.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+        });
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        // 初始加载时也触发一次
+        window.addEventListener('load', fadeInOnScroll);
+        
+        // 平滑滚动到锚点
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
